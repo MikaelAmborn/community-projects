@@ -18,9 +18,12 @@ defmodule Heroku do
 end
 
 config :community_projects, CommunityProjects.Repo,
-  "DATABASE_URL"
-  |> System.get_env
-  |> Heroku.database_config
+  adapter: Ecto.Adapters.Postgres,
+  url: {:system, "DATABASE_URL"},
+  size: 20
+  #"DATABASE_URL"
+  #|> System.get_env
+  #|> Heroku.database_config
 
 config :community_projects, CommunityProjects.Endpoint,
   secret_key_base: System.get_env("SECRET_KEY_BASE")
