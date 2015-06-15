@@ -1,0 +1,28 @@
+<h2>Projekt</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Namn</th>
+      <th>Beskrivning</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for project <- @projects do %>
+    <tr>
+      <td><%= project.name %></td>
+      <td><%= project.description %></td>
+
+      <td class="text-right">
+        <%= link "Visa", to: project_path(@conn, :show, project), class: "btn btn-default btn-xs" %>
+        <%= link "Ändra", to: project_path(@conn, :edit, project), class: "btn btn-default btn-xs" %>
+        <%= link "Ta bort", to: project_path(@conn, :delete, project), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "Nytt projekt", to: project_path(@conn, :new) %>

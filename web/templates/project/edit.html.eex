@@ -1,0 +1,6 @@
+<h2>Ändra projekt</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: project_path(@conn, :update, @project) %>
+
+<%= link "Alla projekt", to: project_path(@conn, :index) %>

@@ -1,0 +1,6 @@
+<h2>Skapa nytt projekt</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: project_path(@conn, :create) %>
+
+<%= link "Alla projekt", to: project_path(@conn, :index) %>
